@@ -1,0 +1,91 @@
+/**
+ * Huawei Ltd.
+ * PhosphorV660
+ */
+
+/dts-v1/;
+
+/include/ "fastboot.dtsi"
+/include/ "EVA_TUCL_64G_ET_VN2_config.dtsi"
+/include/ "EVA_TUCL_64G_LC_VN2_pin.dtsi"
+/include/ "EVA_TUCL_64G_LC_VN2_modem_pin.dtsi"
+/include/ "EVA_TUCL_64G_LC_VN2_hi6402_pin.dtsi"
+
+/{
+	hisi,modem_id = <0x3C014400>;
+	hisi,boardid = <3 4 7 1>;
+	hisi,boardname = "EVA_TUCL_64G_LC_VN2";
+	hisi,config_profile = "highhigh";
+	target-cpu {
+		target_cpu = "Kirin 955";
+	};
+
+	huawei,hisi_isp100{
+		pinctrl-1 = <
+				&gpio017_pmx_idle
+				&gpio018_pmx_idle
+				&gpio022_pmx_idle
+				&gpio023_pmx_idle
+				&gpio024_pmx_idle
+				&gpio025_pmx_idle
+				&gpio026_pmx_idle
+				&gpio027_pmx_idle
+				&gpio028_pmx_idle
+				&gpio003_hi6402_pinctrl_idle
+				&gpio122_pmx_idle
+				&gpio081_pmx_idle
+				&gpio217_pmx_idle
+				//&gpio134_pmx_idle
+
+				&gpio017_cfg_idle
+				&gpio018_cfg_idle
+				&gpio022_cfg_idle
+				&gpio023_cfg_idle
+				&gpio024_cfg_idle
+				&gpio025_cfg_idle
+				&gpio026_cfg_idle
+				&gpio027_cfg_idle
+				&gpio028_cfg_idle
+				&gpio122_cfg_idle
+				&gpio081_cfg_idle
+				&gpio217_cfg_idle
+				//&gpio134_cfg_idle
+				>;
+		pinctrl-0 = <
+				&gpio017_pmx_func
+				&gpio018_pmx_func
+				&gpio022_pmx_func
+				&gpio023_pmx_func
+				&gpio024_pmx_func
+				&gpio025_pmx_func
+				&gpio026_pmx_func
+				&gpio027_pmx_func
+				&gpio028_pmx_func
+				&gpio003_hi6402_pinctrl_func
+				&gpio122_pmx_func
+				&gpio081_pmx_func
+				&gpio217_pmx_func
+				//&gpio134_pmx_func
+
+				&gpio017_cfg_func
+				&gpio018_cfg_func
+				&gpio022_cfg_func
+				&gpio023_cfg_func
+				&gpio024_cfg_func
+				&gpio025_cfg_func
+				&gpio026_cfg_func
+				&gpio027_cfg_func
+				&gpio028_cfg_func
+				&gpio122_cfg_func
+				&gpio081_cfg_func
+				&gpio217_cfg_func
+				//&gpio134_cfg_func
+				>;
+	};
+
+	huawei,imx286dual{
+		gpios = <&gpio2 2 0 &gpio2 1 0 &gpio27 1 0 &gpio15 2 0 &gpio10 1 0>;
+		huawei,gpio-ctrl-types = "reset", "reset2", "dvdd1-en", "iovdd-en", "mispdcdc-en";
+		module_type = <3>;/*bit0=enable ,other bits=type*/
+	};
+};
